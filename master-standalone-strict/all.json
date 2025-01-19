@@ -1,7 +1,16 @@
 {
   "oneOf": [
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.AuditAnnotation"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ExpressionWarning"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchCondition"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MatchResources"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhook"
@@ -13,10 +22,43 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.MutatingWebhookConfigurationList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.NamedRuleWithOperations"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ParamKind"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ParamRef"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.RuleWithOperations"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ServiceReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.TypeChecking"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyBinding"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyBindingList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyBindingSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicySpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingAdmissionPolicyStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingWebhook"
@@ -28,19 +70,46 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.ValidatingWebhookConfigurationList"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.Validation"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.Variable"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1.WebhookClientConfig"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.AuditAnnotation"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ApplyConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ExpressionWarning"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.JSONPatch"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MatchCondition"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MatchResources"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicyBinding"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicyBindingList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicyBindingSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicyList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.MutatingAdmissionPolicySpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Mutation"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.NamedRuleWithOperations"
@@ -50,33 +119,6 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ParamRef"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.TypeChecking"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicy"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyBinding"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyBindingList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyBindingSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicySpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.ValidatingAdmissionPolicyStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Validation"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.admissionregistration.v1alpha1.Variable"
@@ -271,16 +313,16 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1.UserInfo"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1alpha1.SelfSubjectReview"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1alpha1.SelfSubjectReviewStatus"
-    },
-    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.SelfSubjectReview"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authentication.v1beta1.SelfSubjectReviewStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.FieldSelectorAttributes"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.LabelSelectorAttributes"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.authorization.v1.LocalSubjectAccessReview"
@@ -460,6 +502,12 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.PodFailurePolicyRule"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.SuccessPolicy"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.SuccessPolicyRule"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.batch.v1.UncountedTerminatedPods"
     },
     {
@@ -496,10 +544,22 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1.LeaseSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.coordination.v1alpha2.LeaseCandidateSpec"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AWSElasticBlockStoreVolumeSource"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Affinity"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AppArmorProfile"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AttachedVolume"
@@ -538,10 +598,10 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.CinderVolumeSource"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClaimSource"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClientIPConfig"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClientIPConfig"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ClusterTrustBundleProjection"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ComponentCondition"
@@ -599,6 +659,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ContainerUser"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.DaemonEndpoint"
@@ -709,6 +772,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ISCSIVolumeSource"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ImageVolumeSource"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.KeyToPath"
     },
     {
@@ -730,6 +796,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LimitRangeSpec"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LinuxContainerUser"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LoadBalancerIngress"
     },
     {
@@ -740,6 +809,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.LocalVolumeSource"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ModifyVolumeStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NFSVolumeSource"
@@ -781,7 +853,16 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeDaemonEndpoints"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeFeatures"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandler"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeRuntimeHandlerFeatures"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.NodeSelector"
@@ -949,6 +1030,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceFieldSelector"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceHealth"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceQuota"
     },
     {
@@ -962,6 +1046,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.ResourceStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SELinuxOptions"
@@ -1033,6 +1120,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SessionAffinityConfig"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.SleepAction"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.StorageOSPersistentVolumeSource"
     },
     {
@@ -1073,6 +1163,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMount"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeMountStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.VolumeNodeAffinity"
@@ -1123,142 +1216,73 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.events.v1.EventSeries"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.ExemptPriorityLevelConfiguration"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.ExemptPriorityLevelConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowDistinguisherMethod"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowDistinguisherMethod"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchema"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchema"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaCondition"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchemaCondition"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchemaList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchemaSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.FlowSchemaStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.FlowSchemaStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.GroupSubject"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.GroupSubject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.LimitResponse"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.LimitResponse"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.LimitedPriorityLevelConfiguration"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.LimitedPriorityLevelConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.NonResourcePolicyRule"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.NonResourcePolicyRule"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PolicyRulesWithSubjects"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PolicyRulesWithSubjects"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfiguration"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationCondition"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationCondition"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationReference"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.PriorityLevelConfigurationStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.PriorityLevelConfigurationStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.QueuingConfiguration"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.QueuingConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.ResourcePolicyRule"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.ResourcePolicyRule"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.ServiceAccountSubject"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.ServiceAccountSubject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.Subject"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.Subject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta2.UserSubject"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.ExemptPriorityLevelConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowDistinguisherMethod"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchema"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaCondition"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.FlowSchemaStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.GroupSubject"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.LimitResponse"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.LimitedPriorityLevelConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.NonResourcePolicyRule"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PolicyRulesWithSubjects"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationCondition"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationList"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationReference"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationSpec"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.PriorityLevelConfigurationStatus"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.QueuingConfiguration"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.ResourcePolicyRule"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.ServiceAccountSubject"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.Subject"
-    },
-    {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1beta3.UserSubject"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.flowcontrol.v1.UserSubject"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.HTTPIngressPath"
@@ -1339,25 +1363,28 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1.ServiceBackendPort"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDR"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddress"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ClusterCIDRSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.IPAddressSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddress"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ParentReference"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDR"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.IPAddressSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1alpha1.ParentReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.networking.v1beta1.ServiceCIDRStatus"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.node.v1.Overhead"
@@ -1423,61 +1450,199 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.rbac.v1.Subject"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.AllocationResult"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocatedDeviceStatus"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContext"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.AllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.BasicDevice"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.CELDeviceSelector"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.PodSchedulingContextStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.Device"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaim"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimConsumerReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceAttribute"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimParametersReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaim"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSchedulingStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClaimConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClass"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimStatus"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassConfiguration"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplate"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassList"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceClassSpec"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClaimTemplateSpec"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceConstraint"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClass"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequest"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassList"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceRequestAllocationResult"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceClassParametersReference"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.DeviceSelector"
     },
     {
-      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha2.ResourceHandle"
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.NetworkDeviceData"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.OpaqueDeviceConfiguration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimConsumerReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceClaimTemplateSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourcePool"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSlice"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1alpha3.ResourceSliceSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocatedDeviceStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.AllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.BasicDevice"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.CELDeviceSelector"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.Device"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceAllocationConfiguration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceAllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceAttribute"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceCapacity"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClaimConfiguration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClassConfiguration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceClassSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceConstraint"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceRequest"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceRequestAllocationResult"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.DeviceSelector"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.NetworkDeviceData"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.OpaqueDeviceConfiguration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaim"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimConsumerReference"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimStatus"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimTemplate"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimTemplateList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceClaimTemplateSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourcePool"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceSlice"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceSliceList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.resource.v1beta1.ResourceSliceSpec"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.api.scheduling.v1.PriorityClass"
@@ -1543,6 +1708,36 @@
       "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1.VolumeNodeResources"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttributesClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1alpha1.VolumeAttributesClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClass"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storage.v1beta1.VolumeAttributesClassList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.GroupVersionResource"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.MigrationCondition"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigration"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationList"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationSpec"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.storagemigration.v1alpha1.StorageVersionMigrationStatus"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.CustomResourceColumnDefinition"
     },
     {
@@ -1600,6 +1795,9 @@
       "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.JSONSchemaPropsOrStringArray"
     },
     {
+      "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.SelectableField"
+    },
+    {
       "$ref": "_definitions.json#/definitions/io.k8s.apiextensions-apiserver.pkg.apis.apiextensions.v1.ServiceReference"
     },
     {
@@ -1634,6 +1832,9 @@
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.DeleteOptions"
+    },
+    {
+      "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldSelectorRequirement"
     },
     {
       "$ref": "_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.FieldsV1"

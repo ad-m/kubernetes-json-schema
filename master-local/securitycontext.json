@@ -8,6 +8,10 @@
         "null"
       ]
     },
+    "appArmorProfile": {
+      "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.AppArmorProfile",
+      "description": "appArmorProfile is the AppArmor options to use by this container. If set, this profile overrides the pod's appArmorProfile. Note that this field cannot be set when spec.os.name is windows."
+    },
     "capabilities": {
       "$ref": "_definitions.json#/definitions/io.k8s.api.core.v1.Capabilities",
       "description": "The capabilities to add/drop when running containers. Defaults to the default set of capabilities granted by the container runtime. Note that this field cannot be set when spec.os.name is windows."
@@ -20,7 +24,7 @@
       ]
     },
     "procMount": {
-      "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+      "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
       "type": [
         "string",
         "null"

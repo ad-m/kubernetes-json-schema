@@ -18,7 +18,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -62,7 +63,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "path": {
               "description": "Path to access on the HTTP server.",
@@ -97,6 +99,23 @@
           },
           "required": [
             "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "sleep": {
+          "description": "SleepAction describes a \"sleep\" action.",
+          "properties": {
+            "seconds": {
+              "description": "Seconds is the number of seconds to sleep.",
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "seconds"
           ],
           "type": [
             "object",
@@ -161,7 +180,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             }
           },
           "type": [
@@ -205,7 +225,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "path": {
               "description": "Path to access on the HTTP server.",
@@ -240,6 +261,23 @@
           },
           "required": [
             "port"
+          ],
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "sleep": {
+          "description": "SleepAction describes a \"sleep\" action.",
+          "properties": {
+            "seconds": {
+              "description": "Seconds is the number of seconds to sleep.",
+              "format": "int64",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "seconds"
           ],
           "type": [
             "object",

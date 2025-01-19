@@ -8,8 +8,7 @@
         "null"
       ],
       "enum": [
-        "v1",
-        "resource.k8s.io/v1alpha2"
+        "v1"
       ]
     },
     "code": {
@@ -22,7 +21,8 @@
     },
     "details": {
       "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master/_definitions.json#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.StatusDetails",
-      "description": "Extended data associated with the reason.  Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type."
+      "description": "Extended data associated with the reason.  Each reason may define its own extended details. This field is optional and the data returned is not guaranteed to conform to any schema except that defined by the reason type.",
+      "x-kubernetes-list-type": "atomic"
     },
     "kind": {
       "description": "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds",
@@ -66,11 +66,6 @@
       "group": "",
       "kind": "Status",
       "version": "v1"
-    },
-    {
-      "group": "resource.k8s.io",
-      "kind": "Status",
-      "version": "v1alpha2"
     }
   ],
   "$schema": "http://json-schema.org/schema#"

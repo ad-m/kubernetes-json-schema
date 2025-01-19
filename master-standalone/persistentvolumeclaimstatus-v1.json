@@ -12,7 +12,8 @@
       "type": [
         "array",
         "null"
-      ]
+      ],
+      "x-kubernetes-list-type": "atomic"
     },
     "allocatedResourceStatuses": {
       "additionalProperties": {
@@ -75,7 +76,7 @@
       ]
     },
     "conditions": {
-      "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.",
+      "description": "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'Resizing'.",
       "items": {
         "description": "PersistentVolumeClaimCondition contains details about state of pvc",
         "properties": {
@@ -103,16 +104,18 @@
             ]
           },
           "reason": {
-            "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.",
+            "description": "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"Resizing\" that means the underlying persistent volume is being resized.",
             "type": [
               "string",
               "null"
             ]
           },
           "status": {
+            "description": "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=state%20of%20pvc-,conditions.status,-(string)%2C%20required",
             "type": "string"
           },
           "type": {
+            "description": "Type is the type of the condition. More info: https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#:~:text=set%20to%20%27ResizeStarted%27.-,PersistentVolumeClaimCondition,-contains%20details%20about",
             "type": "string"
           }
         },
@@ -129,8 +132,42 @@
         "array",
         "null"
       ],
+      "x-kubernetes-list-map-keys": [
+        "type"
+      ],
+      "x-kubernetes-list-type": "map",
       "x-kubernetes-patch-merge-key": "type",
       "x-kubernetes-patch-strategy": "merge"
+    },
+    "currentVolumeAttributesClassName": {
+      "description": "currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is a beta field and requires enabling VolumeAttributesClass feature (off by default).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "modifyVolumeStatus": {
+      "description": "ModifyVolumeStatus represents the status object of ControllerModifyVolume operation",
+      "properties": {
+        "status": {
+          "description": "status is the status of the ControllerModifyVolume operation. It can be in any of following states:\n - Pending\n   Pending indicates that the PersistentVolumeClaim cannot be modified due to unmet requirements, such as\n   the specified VolumeAttributesClass not existing.\n - InProgress\n   InProgress indicates that the volume is being modified.\n - Infeasible\n  Infeasible indicates that the request has been rejected as invalid by the CSI driver. To\n\t  resolve the error, a valid VolumeAttributesClass needs to be specified.\nNote: New statuses can be added in the future. Consumers should check for unknown statuses and fail appropriately.",
+          "type": "string"
+        },
+        "targetVolumeAttributesClassName": {
+          "description": "targetVolumeAttributesClassName is the name of the VolumeAttributesClass the PVC currently being reconciled",
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "status"
+      ],
+      "type": [
+        "object",
+        "null"
+      ]
     },
     "phase": {
       "description": "phase represents the current phase of PersistentVolumeClaim.",

@@ -113,7 +113,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "required": [
@@ -128,7 +129,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "matchLabels": {
                   "additionalProperties": {
@@ -281,7 +283,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "required": [
@@ -296,7 +299,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "matchLabels": {
                   "additionalProperties": {
@@ -425,7 +429,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "required": [
@@ -440,7 +445,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "matchLabels": {
                   "additionalProperties": {
@@ -602,7 +608,7 @@
       ]
     },
     "type": {
-      "description": "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object. Note: \"ContainerResource\" type is available on when the feature-gate HPAContainerMetrics is enabled",
+      "description": "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object.",
       "type": [
         "string",
         "null"

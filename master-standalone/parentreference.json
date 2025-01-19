@@ -28,15 +28,12 @@
         "string",
         "null"
       ]
-    },
-    "uid": {
-      "description": "UID is the uid of the object being referenced.",
-      "type": [
-        "string",
-        "null"
-      ]
     }
   },
+  "required": [
+    "resource",
+    "name"
+  ],
   "type": "object",
   "$schema": "http://json-schema.org/schema#"
 }

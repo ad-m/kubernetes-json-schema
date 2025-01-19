@@ -70,6 +70,7 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-type": "set",
           "x-kubernetes-patch-strategy": "merge"
         },
         "generateName": {
@@ -164,7 +165,8 @@
           "type": [
             "array",
             "null"
-          ]
+          ],
+          "x-kubernetes-list-type": "atomic"
         },
         "name": {
           "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -232,6 +234,10 @@
             "array",
             "null"
           ],
+          "x-kubernetes-list-map-keys": [
+            "uid"
+          ],
+          "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "uid",
           "x-kubernetes-patch-strategy": "merge"
         },
@@ -317,6 +323,7 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-type": "set",
               "x-kubernetes-patch-strategy": "merge"
             },
             "generateName": {
@@ -411,7 +418,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "name": {
               "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -479,6 +487,10 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "uid"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "uid",
               "x-kubernetes-patch-strategy": "merge"
             },
@@ -558,7 +570,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -573,7 +586,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchFields": {
                                 "description": "A list of node selector requirements by node's fields.",
@@ -599,7 +613,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -614,7 +629,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": "object",
@@ -638,7 +654,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
                       "description": "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.",
@@ -672,7 +689,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -687,7 +705,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchFields": {
                                 "description": "A list of node selector requirements by node's fields.",
@@ -713,7 +732,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -728,7 +748,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -737,7 +758,8 @@
                             ],
                             "x-kubernetes-map-type": "atomic"
                           },
-                          "type": "array"
+                          "type": "array",
+                          "x-kubernetes-list-type": "atomic"
                         }
                       },
                       "required": [
@@ -793,7 +815,8 @@
                                           "type": [
                                             "array",
                                             "null"
-                                          ]
+                                          ],
+                                          "x-kubernetes-list-type": "atomic"
                                         }
                                       },
                                       "required": [
@@ -808,7 +831,8 @@
                                     "type": [
                                       "array",
                                       "null"
-                                    ]
+                                    ],
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "matchLabels": {
                                     "additionalProperties": {
@@ -829,6 +853,34 @@
                                   "null"
                                 ],
                                 "x-kubernetes-map-type": "atomic"
+                              },
+                              "matchLabelKeys": {
+                                "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "x-kubernetes-list-type": "atomic"
+                              },
+                              "mismatchLabelKeys": {
+                                "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -857,7 +909,8 @@
                                           "type": [
                                             "array",
                                             "null"
-                                          ]
+                                          ],
+                                          "x-kubernetes-list-type": "atomic"
                                         }
                                       },
                                       "required": [
@@ -872,7 +925,8 @@
                                     "type": [
                                       "array",
                                       "null"
-                                    ]
+                                    ],
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "matchLabels": {
                                     "additionalProperties": {
@@ -905,7 +959,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "topologyKey": {
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
@@ -935,7 +990,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
                       "description": "If the affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
@@ -969,7 +1025,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -984,7 +1041,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -1005,6 +1063,34 @@
                               "null"
                             ],
                             "x-kubernetes-map-type": "atomic"
+                          },
+                          "matchLabelKeys": {
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "x-kubernetes-list-type": "atomic"
+                          },
+                          "mismatchLabelKeys": {
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -1033,7 +1119,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -1048,7 +1135,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -1081,7 +1169,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "topologyKey": {
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
@@ -1099,7 +1188,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "type": [
@@ -1145,7 +1235,8 @@
                                           "type": [
                                             "array",
                                             "null"
-                                          ]
+                                          ],
+                                          "x-kubernetes-list-type": "atomic"
                                         }
                                       },
                                       "required": [
@@ -1160,7 +1251,8 @@
                                     "type": [
                                       "array",
                                       "null"
-                                    ]
+                                    ],
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "matchLabels": {
                                     "additionalProperties": {
@@ -1181,6 +1273,34 @@
                                   "null"
                                 ],
                                 "x-kubernetes-map-type": "atomic"
+                              },
+                              "matchLabelKeys": {
+                                "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "x-kubernetes-list-type": "atomic"
+                              },
+                              "mismatchLabelKeys": {
+                                "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "type": [
+                                  "array",
+                                  "null"
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "namespaceSelector": {
                                 "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -1209,7 +1329,8 @@
                                           "type": [
                                             "array",
                                             "null"
-                                          ]
+                                          ],
+                                          "x-kubernetes-list-type": "atomic"
                                         }
                                       },
                                       "required": [
@@ -1224,7 +1345,8 @@
                                     "type": [
                                       "array",
                                       "null"
-                                    ]
+                                    ],
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "matchLabels": {
                                     "additionalProperties": {
@@ -1257,7 +1379,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "topologyKey": {
                                 "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
@@ -1287,7 +1410,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     },
                     "requiredDuringSchedulingIgnoredDuringExecution": {
                       "description": "If the anti-affinity requirements specified by this field are not met at scheduling time, the pod will not be scheduled onto the node. If the anti-affinity requirements specified by this field cease to be met at some point during pod execution (e.g. due to a pod label update), the system may or may not try to eventually evict the pod from its node. When there are multiple elements, the lists of nodes corresponding to each podAffinityTerm are intersected, i.e. all terms must be satisfied.",
@@ -1321,7 +1445,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -1336,7 +1461,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -1357,6 +1483,34 @@
                               "null"
                             ],
                             "x-kubernetes-map-type": "atomic"
+                          },
+                          "matchLabelKeys": {
+                            "description": "MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key in (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "x-kubernetes-list-type": "atomic"
+                          },
+                          "mismatchLabelKeys": {
+                            "description": "MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with `labelSelector` as `key notin (value)` to select the group of existing pods which pods will be taken into consideration for the incoming pod's pod (anti) affinity. Keys that don't exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn't set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).",
+                            "items": {
+                              "type": [
+                                "string",
+                                "null"
+                              ]
+                            },
+                            "type": [
+                              "array",
+                              "null"
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "namespaceSelector": {
                             "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
@@ -1385,7 +1539,8 @@
                                       "type": [
                                         "array",
                                         "null"
-                                      ]
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
                                     }
                                   },
                                   "required": [
@@ -1400,7 +1555,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "matchLabels": {
                                 "additionalProperties": {
@@ -1433,7 +1589,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "topologyKey": {
                             "description": "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.",
@@ -1451,7 +1608,8 @@
                       "type": [
                         "array",
                         "null"
-                      ]
+                      ],
+                      "x-kubernetes-list-type": "atomic"
                     }
                   },
                   "type": [
@@ -1488,7 +1646,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "command": {
                     "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
@@ -1501,7 +1660,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "env": {
                     "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -1530,7 +1690,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -1625,7 +1785,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -1667,19 +1827,23 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "name",
                     "x-kubernetes-patch-strategy": "merge"
                   },
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -1699,7 +1863,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
@@ -1709,7 +1873,7 @@
                           "description": "SecretEnvSource selects a Secret to populate the environment variables with.\n\nThe contents of the target Secret's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -1737,7 +1901,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "image": {
                     "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
@@ -1773,7 +1938,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -1817,7 +1983,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -1852,6 +2019,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -1916,7 +2100,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -1960,7 +2145,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -1995,6 +2181,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -2065,7 +2268,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -2082,6 +2286,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -2140,7 +2345,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -2343,7 +2549,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -2360,6 +2567,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -2418,7 +2626,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -2580,6 +2789,13 @@
                             "name": {
                               "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                               "type": "string"
+                            },
+                            "request": {
+                              "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           },
                           "required": [
@@ -2668,6 +2884,37 @@
                           "null"
                         ]
                       },
+                      "appArmorProfile": {
+                        "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                        "properties": {
+                          "localhostProfile": {
+                            "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": {
+                            "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "x-kubernetes-unions": [
+                          {
+                            "discriminator": "type",
+                            "fields-to-discriminateBy": {
+                              "localhostProfile": "LocalhostProfile"
+                            }
+                          }
+                        ]
+                      },
                       "capabilities": {
                         "description": "Adds and removes POSIX capabilities from running containers.",
                         "properties": {
@@ -2682,7 +2929,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "drop": {
                             "description": "Removed capabilities",
@@ -2695,7 +2943,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -2711,7 +2960,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -2875,7 +3124,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -2892,6 +3142,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -2950,7 +3201,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -3134,6 +3386,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "devicePath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "devicePath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -3147,7 +3403,7 @@
                           "type": "string"
                         },
                         "mountPropagation": {
-                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.",
+                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10. When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None).",
                           "type": [
                             "string",
                             "null"
@@ -3161,6 +3417,13 @@
                           "description": "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.",
                           "type": [
                             "boolean",
+                            "null"
+                          ]
+                        },
+                        "recursiveReadOnly": {
+                          "description": "RecursiveReadOnly specifies whether read-only mounts should be handled recursively.\n\nIf ReadOnly is false, this field has no meaning and must be unspecified.\n\nIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.\n\nIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).\n\nIf this field is not specified, it is treated as an equivalent of Disabled.",
+                          "type": [
+                            "string",
                             "null"
                           ]
                         },
@@ -3192,6 +3455,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "mountPath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "mountPath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -3212,6 +3479,10 @@
                 ]
               },
               "type": "array",
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge"
             },
@@ -3229,7 +3500,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "options": {
                   "description": "A list of DNS resolver options. This will be merged with the base options generated from DNSPolicy. Duplicated entries will be removed. Resolution options given in Options will override those that appear in the base DNSPolicy.",
@@ -3237,13 +3509,14 @@
                     "description": "PodDNSConfigOption defines DNS resolver options of a pod.",
                     "properties": {
                       "name": {
-                        "description": "Required.",
+                        "description": "Name is this DNS resolver option's name. Required.",
                         "type": [
                           "string",
                           "null"
                         ]
                       },
                       "value": {
+                        "description": "Value is this DNS resolver option's value.",
                         "type": [
                           "string",
                           "null"
@@ -3258,7 +3531,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "searches": {
                   "description": "A list of DNS search domains for host-name lookup. This will be appended to the base search paths generated from DNSPolicy. Duplicated search paths will be removed.",
@@ -3271,7 +3545,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 }
               },
               "type": [
@@ -3309,7 +3584,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "command": {
                     "description": "Entrypoint array. Not executed within a shell. The image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
@@ -3322,7 +3598,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "env": {
                     "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -3351,7 +3628,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -3446,7 +3723,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -3488,19 +3765,23 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "name",
                     "x-kubernetes-patch-strategy": "merge"
                   },
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -3520,7 +3801,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
@@ -3530,7 +3811,7 @@
                           "description": "SecretEnvSource selects a Secret to populate the environment variables with.\n\nThe contents of the target Secret's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -3558,7 +3839,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "image": {
                     "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images",
@@ -3594,7 +3876,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -3638,7 +3921,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -3673,6 +3957,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -3737,7 +4038,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -3781,7 +4083,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -3816,6 +4119,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -3886,7 +4206,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -3903,6 +4224,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -3961,7 +4283,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -4164,7 +4487,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -4181,6 +4505,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -4239,7 +4564,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -4401,6 +4727,13 @@
                             "name": {
                               "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                               "type": "string"
+                            },
+                            "request": {
+                              "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           },
                           "required": [
@@ -4489,6 +4822,37 @@
                           "null"
                         ]
                       },
+                      "appArmorProfile": {
+                        "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                        "properties": {
+                          "localhostProfile": {
+                            "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": {
+                            "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "x-kubernetes-unions": [
+                          {
+                            "discriminator": "type",
+                            "fields-to-discriminateBy": {
+                              "localhostProfile": "LocalhostProfile"
+                            }
+                          }
+                        ]
+                      },
                       "capabilities": {
                         "description": "Adds and removes POSIX capabilities from running containers.",
                         "properties": {
@@ -4503,7 +4867,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "drop": {
                             "description": "Removed capabilities",
@@ -4516,7 +4881,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -4532,7 +4898,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -4696,7 +5062,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -4713,6 +5080,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -4771,7 +5139,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -4962,6 +5331,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "devicePath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "devicePath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -4975,7 +5348,7 @@
                           "type": "string"
                         },
                         "mountPropagation": {
-                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.",
+                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10. When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None).",
                           "type": [
                             "string",
                             "null"
@@ -4989,6 +5362,13 @@
                           "description": "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.",
                           "type": [
                             "boolean",
+                            "null"
+                          ]
+                        },
+                        "recursiveReadOnly": {
+                          "description": "RecursiveReadOnly specifies whether read-only mounts should be handled recursively.\n\nIf ReadOnly is false, this field has no meaning and must be unspecified.\n\nIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.\n\nIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).\n\nIf this field is not specified, it is treated as an equivalent of Disabled.",
+                          "type": [
+                            "string",
                             "null"
                           ]
                         },
@@ -5020,6 +5400,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "mountPath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "mountPath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -5043,11 +5427,15 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge"
             },
             "hostAliases": {
-              "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified. This is only valid for non-hostNetwork pods.",
+              "description": "HostAliases is an optional list of hosts and IPs that will be injected into the pod's hosts file if specified.",
               "items": {
                 "description": "HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.",
                 "properties": {
@@ -5062,16 +5450,17 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "ip": {
                     "description": "IP address of the host file entry.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
+                    "type": "string"
                   }
                 },
+                "required": [
+                  "ip"
+                ],
                 "type": [
                   "object",
                   "null"
@@ -5081,6 +5470,10 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "ip"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "ip",
               "x-kubernetes-patch-strategy": "merge"
             },
@@ -5125,7 +5518,7 @@
                 "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                 "properties": {
                   "name": {
-                    "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                    "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                     "type": [
                       "string",
                       "null"
@@ -5142,6 +5535,10 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge"
             },
@@ -5161,7 +5558,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "command": {
                     "description": "Entrypoint array. Not executed within a shell. The container image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Cannot be updated. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell",
@@ -5174,7 +5572,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "env": {
                     "description": "List of environment variables to set in the container. Cannot be updated.",
@@ -5203,7 +5602,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -5298,7 +5697,7 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -5340,19 +5739,23 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "name"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "name",
                     "x-kubernetes-patch-strategy": "merge"
                   },
                   "envFrom": {
                     "description": "List of sources to populate environment variables in the container. The keys defined within a source must be a C_IDENTIFIER. All invalid keys will be reported as an event when the container is starting. When a key exists in multiple sources, the value associated with the last source will take precedence. Values defined by an Env with a duplicate key will take precedence. Cannot be updated.",
                     "items": {
-                      "description": "EnvFromSource represents the source of a set of ConfigMaps",
+                      "description": "EnvFromSource represents the source of a set of ConfigMaps or Secrets",
                       "properties": {
                         "configMapRef": {
                           "description": "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.\n\nThe contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -5372,7 +5775,7 @@
                           ]
                         },
                         "prefix": {
-                          "description": "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.",
+                          "description": "Optional text to prepend to the name of each environment variable. Must be a C_IDENTIFIER.",
                           "type": [
                             "string",
                             "null"
@@ -5382,7 +5785,7 @@
                           "description": "SecretEnvSource selects a Secret to populate the environment variables with.\n\nThe contents of the target Secret's Data field will represent the key-value pairs as environment variables.",
                           "properties": {
                             "name": {
-                              "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                              "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                               "type": [
                                 "string",
                                 "null"
@@ -5410,7 +5813,8 @@
                     "type": [
                       "array",
                       "null"
-                    ]
+                    ],
+                    "x-kubernetes-list-type": "atomic"
                   },
                   "image": {
                     "description": "Container image name. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
@@ -5446,7 +5850,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -5490,7 +5895,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -5525,6 +5931,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -5589,7 +6012,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               }
                             },
                             "type": [
@@ -5633,7 +6057,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "path": {
                                 "description": "Path to access on the HTTP server.",
@@ -5668,6 +6093,23 @@
                             },
                             "required": [
                               "port"
+                            ],
+                            "type": [
+                              "object",
+                              "null"
+                            ]
+                          },
+                          "sleep": {
+                            "description": "SleepAction describes a \"sleep\" action.",
+                            "properties": {
+                              "seconds": {
+                                "description": "Seconds is the number of seconds to sleep.",
+                                "format": "int64",
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "seconds"
                             ],
                             "type": [
                               "object",
@@ -5738,7 +6180,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -5755,6 +6198,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -5813,7 +6257,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -6016,7 +6461,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -6033,6 +6479,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -6091,7 +6538,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -6253,6 +6701,13 @@
                             "name": {
                               "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
                               "type": "string"
+                            },
+                            "request": {
+                              "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                              "type": [
+                                "string",
+                                "null"
+                              ]
                             }
                           },
                           "required": [
@@ -6341,6 +6796,37 @@
                           "null"
                         ]
                       },
+                      "appArmorProfile": {
+                        "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                        "properties": {
+                          "localhostProfile": {
+                            "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "type": {
+                            "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "type": [
+                          "object",
+                          "null"
+                        ],
+                        "x-kubernetes-unions": [
+                          {
+                            "discriminator": "type",
+                            "fields-to-discriminateBy": {
+                              "localhostProfile": "LocalhostProfile"
+                            }
+                          }
+                        ]
+                      },
                       "capabilities": {
                         "description": "Adds and removes POSIX capabilities from running containers.",
                         "properties": {
@@ -6355,7 +6841,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "drop": {
                             "description": "Removed capabilities",
@@ -6368,7 +6855,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -6384,7 +6872,7 @@
                         ]
                       },
                       "procMount": {
-                        "description": "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
+                        "description": "procMount denotes the type of proc mount to use for the containers. The default value is Default which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.",
                         "type": [
                           "string",
                           "null"
@@ -6548,7 +7036,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           }
                         },
                         "type": [
@@ -6565,6 +7054,7 @@
                         ]
                       },
                       "grpc": {
+                        "description": "GRPCAction specifies an action involving a GRPC service.",
                         "properties": {
                           "port": {
                             "description": "Port number of the gRPC service. Number must be in the range 1 to 65535.",
@@ -6623,7 +7113,8 @@
                             "type": [
                               "array",
                               "null"
-                            ]
+                            ],
+                            "x-kubernetes-list-type": "atomic"
                           },
                           "path": {
                             "description": "Path to access on the HTTP server.",
@@ -6807,6 +7298,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "devicePath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "devicePath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -6820,7 +7315,7 @@
                           "type": "string"
                         },
                         "mountPropagation": {
-                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.",
+                          "description": "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10. When RecursiveReadOnly is set to IfPossible or to Enabled, MountPropagation must be None or unspecified (which defaults to None).",
                           "type": [
                             "string",
                             "null"
@@ -6834,6 +7329,13 @@
                           "description": "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.",
                           "type": [
                             "boolean",
+                            "null"
+                          ]
+                        },
+                        "recursiveReadOnly": {
+                          "description": "RecursiveReadOnly specifies whether read-only mounts should be handled recursively.\n\nIf ReadOnly is false, this field has no meaning and must be unspecified.\n\nIf ReadOnly is true, and this field is set to Disabled, the mount is not made recursively read-only.  If this field is set to IfPossible, the mount is made recursively read-only, if it is supported by the container runtime.  If this field is set to Enabled, the mount is made recursively read-only if it is supported by the container runtime, otherwise the pod will not be started and an error will be generated to indicate the reason.\n\nIf this field is set to IfPossible or Enabled, MountPropagation must be set to None (or be unspecified, which defaults to None).\n\nIf this field is not specified, it is treated as an equivalent of Disabled.",
+                          "type": [
+                            "string",
                             "null"
                           ]
                         },
@@ -6865,6 +7367,10 @@
                       "array",
                       "null"
                     ],
+                    "x-kubernetes-list-map-keys": [
+                      "mountPath"
+                    ],
+                    "x-kubernetes-list-type": "map",
                     "x-kubernetes-patch-merge-key": "mountPath",
                     "x-kubernetes-patch-strategy": "merge"
                   },
@@ -6888,11 +7394,15 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge"
             },
             "nodeName": {
-              "description": "NodeName is a request to schedule this pod onto a specific node. If it is non-empty, the scheduler simply schedules this pod onto that node, assuming that it fits resource requirements.",
+              "description": "NodeName indicates in which node this pod is scheduled. If empty, this pod is a candidate for scheduling by the scheduler defined in schedulerName. Once this field is set, the kubelet for this node becomes responsible for the lifecycle of this pod. This field should not be used to express a desire for the pod to be scheduled on a specific node. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodename",
               "type": [
                 "string",
                 "null"
@@ -6994,37 +7504,29 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "resourceClaims": {
               "description": "ResourceClaims defines which ResourceClaims must be allocated and reserved before the Pod is allowed to start. The resources will be made available to those containers which consume them by name.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable.",
               "items": {
-                "description": "PodResourceClaim references exactly one ResourceClaim through a ClaimSource. It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.",
+                "description": "PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.\n\nIt adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.",
                 "properties": {
                   "name": {
                     "description": "Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.",
                     "type": "string"
                   },
-                  "source": {
-                    "description": "ClaimSource describes a reference to a ResourceClaim.\n\nExactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.",
-                    "properties": {
-                      "resourceClaimName": {
-                        "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.",
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      },
-                      "resourceClaimTemplateName": {
-                        "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.",
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      }
-                    },
+                  "resourceClaimName": {
+                    "description": "ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
                     "type": [
-                      "object",
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "resourceClaimTemplateName": {
+                    "description": "ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.\n\nThe template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.\n\nThis field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.\n\nExactly one of ResourceClaimName and ResourceClaimTemplateName must be set.",
+                    "type": [
+                      "string",
                       "null"
                     ]
                   }
@@ -7048,6 +7550,95 @@
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge,retainKeys"
             },
+            "resources": {
+              "description": "ResourceRequirements describes the compute resource requirements.",
+              "properties": {
+                "claims": {
+                  "description": "Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.\n\nThis is an alpha field and requires enabling the DynamicResourceAllocation feature gate.\n\nThis field is immutable. It can only be set for containers.",
+                  "items": {
+                    "description": "ResourceClaim references one entry in PodSpec.ResourceClaims.",
+                    "properties": {
+                      "name": {
+                        "description": "Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.",
+                        "type": "string"
+                      },
+                      "request": {
+                        "description": "Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ],
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "x-kubernetes-list-map-keys": [
+                    "name"
+                  ],
+                  "x-kubernetes-list-type": "map"
+                },
+                "limits": {
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "description": "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                },
+                "requests": {
+                  "additionalProperties": {
+                    "oneOf": [
+                      {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      {
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      }
+                    ]
+                  },
+                  "description": "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                }
+              },
+              "type": [
+                "object",
+                "null"
+              ]
+            },
             "restartPolicy": {
               "description": "Restart policy for all containers within the pod. One of Always, OnFailure, Never. In some contexts, only a subset of those values may be permitted. Default to Always. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy",
               "type": [
@@ -7070,7 +7661,7 @@
               ]
             },
             "schedulingGates": {
-              "description": "SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.\n\nSchedulingGates can only be set at pod creation time, and be removed only afterwards.\n\nThis is a beta feature enabled by the PodSchedulingReadiness feature gate.",
+              "description": "SchedulingGates is an opaque list of values that if specified will block scheduling the pod. If schedulingGates is not empty, the pod will stay in the SchedulingGated state and the scheduler will not attempt to schedule the pod.\n\nSchedulingGates can only be set at pod creation time, and be removed only afterwards.",
               "items": {
                 "description": "PodSchedulingGate is associated to a Pod to guard its scheduling.",
                 "properties": {
@@ -7101,6 +7692,37 @@
             "securityContext": {
               "description": "PodSecurityContext holds pod-level security attributes and common container settings. Some fields are also present in container.securityContext.  Field values of container.securityContext take precedence over field values of PodSecurityContext.",
               "properties": {
+                "appArmorProfile": {
+                  "description": "AppArmorProfile defines a pod or container's AppArmor settings.",
+                  "properties": {
+                    "localhostProfile": {
+                      "description": "localhostProfile indicates a profile loaded on the node that should be used. The profile must be preconfigured on the node to work. Must match the loaded name of the profile. Must be set if and only if type is \"Localhost\".",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "type indicates which kind of AppArmor profile will be applied. Valid options are:\n  Localhost - a profile pre-loaded on the node.\n  RuntimeDefault - the container runtime's default profile.\n  Unconfined - no AppArmor enforcement.",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "x-kubernetes-unions": [
+                    {
+                      "discriminator": "type",
+                      "fields-to-discriminateBy": {
+                        "localhostProfile": "LocalhostProfile"
+                      }
+                    }
+                  ]
+                },
                 "fsGroup": {
                   "description": "A special supplemental group that applies to all containers in a pod. Some volume types allow the Kubelet to change the ownership of that volume to be owned by the pod:\n\n1. The owning GID will be the FSGroup 2. The setgid bit is set (new files created in the volume will be owned by FSGroup) 3. The permission bits are OR'd with rw-rw----\n\nIf unset, the Kubelet will not modify the ownership and permissions of any volume. Note that this field cannot be set when spec.os.name is windows.",
                   "format": "int64",
@@ -7136,6 +7758,13 @@
                   "format": "int64",
                   "type": [
                     "integer",
+                    "null"
+                  ]
+                },
+                "seLinuxChangePolicy": {
+                  "description": "seLinuxChangePolicy defines how the container's SELinux label is applied to all volumes used by the Pod. It has no effect on nodes that do not support SELinux or to volumes does not support SELinux. Valid values are \"MountOption\" and \"Recursive\".\n\n\"Recursive\" means relabeling of all files on all Pod volumes by the container runtime. This may be slow for large volumes, but allows mixing privileged and unprivileged Pods sharing the same volume on the same node.\n\n\"MountOption\" mounts all eligible Pod volumes with `-o context` mount option. This requires all Pods that share the same volume to use the same SELinux label. It is not possible to share the same volume among privileged and unprivileged Pods. Eligible volumes are in-tree FibreChannel and iSCSI volumes, and all CSI volumes whose CSI driver announces SELinux support by setting spec.seLinuxMount: true in their CSIDriver instance. Other volumes are always re-labelled recursively. \"MountOption\" value is allowed only when SELinuxMount feature gate is enabled.\n\nIf not specified and SELinuxMount feature gate is enabled, \"MountOption\" is used. If not specified and SELinuxMount feature gate is disabled, \"MountOption\" is used for ReadWriteOncePod volumes and \"Recursive\" for all other volumes.\n\nThis field affects only Pods that have SELinux label set, either in PodSecurityContext or in SecurityContext of all containers.\n\nAll Pods that use the same volume should use the same seLinuxChangePolicy, otherwise some pods can get stuck in ContainerCreating state. Note that this field cannot be set when spec.os.name is windows.",
+                  "type": [
+                    "string",
                     "null"
                   ]
                 },
@@ -7208,7 +7837,7 @@
                   ]
                 },
                 "supplementalGroups": {
-                  "description": "A list of groups applied to the first process run in each container, in addition to the container's primary GID, the fsGroup (if specified), and group memberships defined in the container image for the uid of the container process. If unspecified, no additional groups are added to any container. Note that group memberships defined in the container image for the uid of the container process are still effective, even if they are not included in this list. Note that this field cannot be set when spec.os.name is windows.",
+                  "description": "A list of groups applied to the first process run in each container, in addition to the container's primary GID and fsGroup (if specified).  If the SupplementalGroupsPolicy feature is enabled, the supplementalGroupsPolicy field determines whether these are in addition to or instead of any group memberships defined in the container image. If unspecified, no additional groups are added, though group memberships defined in the container image may still be used, depending on the supplementalGroupsPolicy field. Note that this field cannot be set when spec.os.name is windows.",
                   "items": {
                     "format": "int64",
                     "type": [
@@ -7218,6 +7847,14 @@
                   },
                   "type": [
                     "array",
+                    "null"
+                  ],
+                  "x-kubernetes-list-type": "atomic"
+                },
+                "supplementalGroupsPolicy": {
+                  "description": "Defines how supplemental groups of the first container processes are calculated. Valid values are \"Merge\" and \"Strict\". If not specified, \"Merge\" is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.",
+                  "type": [
+                    "string",
                     "null"
                   ]
                 },
@@ -7247,7 +7884,8 @@
                   "type": [
                     "array",
                     "null"
-                  ]
+                  ],
+                  "x-kubernetes-list-type": "atomic"
                 },
                 "windowsOptions": {
                   "description": "WindowsSecurityContextOptions contain Windows-specific options and credentials.",
@@ -7293,7 +7931,7 @@
               ]
             },
             "serviceAccount": {
-              "description": "DeprecatedServiceAccount is a depreciated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
+              "description": "DeprecatedServiceAccount is a deprecated alias for ServiceAccountName. Deprecated: Use serviceAccountName instead.",
               "type": [
                 "string",
                 "null"
@@ -7307,7 +7945,7 @@
               ]
             },
             "setHostnameAsFQDN": {
-              "description": "If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.",
+              "description": "If true the pod's hostname will be configured as the pod's FQDN, rather than the leaf name (the default). In Linux containers, this means setting the FQDN in the hostname field of the kernel (the nodename field of struct utsname). In Windows containers, this means setting the registry value of hostname for the registry key HKEY_LOCAL_MACHINE\\\\SYSTEM\\\\CurrentControlSet\\\\Services\\\\Tcpip\\\\Parameters to FQDN. If a pod does not have FQDN, this has no effect. Default to false.",
               "type": [
                 "boolean",
                 "null"
@@ -7385,7 +8023,8 @@
               "type": [
                 "array",
                 "null"
-              ]
+              ],
+              "x-kubernetes-list-type": "atomic"
             },
             "topologySpreadConstraints": {
               "description": "TopologySpreadConstraints describes how a group of pods ought to spread across topology domains. Scheduler will schedule pods in a way which abides by the constraints. All topologySpreadConstraints are ANDed.",
@@ -7419,7 +8058,8 @@
                               "type": [
                                 "array",
                                 "null"
-                              ]
+                              ],
+                              "x-kubernetes-list-type": "atomic"
                             }
                           },
                           "required": [
@@ -7434,7 +8074,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "matchLabels": {
                         "additionalProperties": {
@@ -7476,7 +8117,7 @@
                     "type": "integer"
                   },
                   "minDomains": {
-                    "description": "MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats \"global minimum\" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule.\n\nFor example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so \"global minimum\" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew.\n\nThis is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).",
+                    "description": "MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats \"global minimum\" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won't schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule.\n\nFor example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | |  P P  |  P P  |  P P  | The number of domains is less than 5(MinDomains), so \"global minimum\" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew.",
                     "format": "int32",
                     "type": [
                       "integer",
@@ -7659,7 +8300,8 @@
                             "null"
                           ]
                         },
-                        "type": "array"
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "path": {
                         "description": "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /",
@@ -7686,7 +8328,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -7736,7 +8378,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -7807,10 +8449,11 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "name": {
-                        "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                        "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                         "type": [
                           "string",
                           "null"
@@ -7847,7 +8490,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -7993,7 +8636,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "type": [
@@ -8091,6 +8735,7 @@
                                   "array",
                                   "null"
                                 ],
+                                "x-kubernetes-list-type": "set",
                                 "x-kubernetes-patch-strategy": "merge"
                               },
                               "generateName": {
@@ -8185,7 +8830,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "name": {
                                 "description": "Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names#names",
@@ -8253,6 +8899,10 @@
                                   "array",
                                   "null"
                                 ],
+                                "x-kubernetes-list-map-keys": [
+                                  "uid"
+                                ],
+                                "x-kubernetes-list-type": "map",
                                 "x-kubernetes-patch-merge-key": "uid",
                                 "x-kubernetes-patch-strategy": "merge"
                               },
@@ -8297,7 +8947,8 @@
                                 "type": [
                                   "array",
                                   "null"
-                                ]
+                                ],
+                                "x-kubernetes-list-type": "atomic"
                               },
                               "dataSource": {
                                 "description": "TypedLocalObjectReference contains enough information to let you locate the typed referenced object inside the same namespace.",
@@ -8329,6 +8980,7 @@
                                 "x-kubernetes-map-type": "atomic"
                               },
                               "dataSourceRef": {
+                                "description": "TypedObjectReference contains enough information to let you locate the typed referenced object",
                                 "properties": {
                                   "apiGroup": {
                                     "description": "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.",
@@ -8444,7 +9096,8 @@
                                           "type": [
                                             "array",
                                             "null"
-                                          ]
+                                          ],
+                                          "x-kubernetes-list-type": "atomic"
                                         }
                                       },
                                       "required": [
@@ -8459,7 +9112,8 @@
                                     "type": [
                                       "array",
                                       "null"
-                                    ]
+                                    ],
+                                    "x-kubernetes-list-type": "atomic"
                                   },
                                   "matchLabels": {
                                     "additionalProperties": {
@@ -8483,6 +9137,13 @@
                               },
                               "storageClassName": {
                                 "description": "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1",
+                                "type": [
+                                  "string",
+                                  "null"
+                                ]
+                              },
+                              "volumeAttributesClassName": {
+                                "description": "volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).",
                                 "type": [
                                   "string",
                                   "null"
@@ -8556,7 +9217,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "wwids": {
                         "description": "wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.",
@@ -8569,7 +9231,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "type": [
@@ -8615,7 +9278,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -8779,6 +9442,29 @@
                       "null"
                     ]
                   },
+                  "image": {
+                    "description": "ImageVolumeSource represents a image volume resource.",
+                    "properties": {
+                      "pullPolicy": {
+                        "description": "Policy for pulling OCI objects. Possible values are: Always: the kubelet always attempts to pull the reference. Container creation will fail If the pull fails. Never: the kubelet never pulls the reference and only uses a local image or artifact. Container creation will fail if the reference isn't present. IfNotPresent: the kubelet pulls if the reference isn't already present on disk. Container creation will fail if the reference isn't present and the pull fails. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "reference": {
+                        "description": "Required: Image or artifact reference to be used. Behaves in the same way as pod.spec.containers[*].image. Pull secrets will be assembled in the same way as for the container image by looking up node credentials, SA image pull secrets, and pod spec image pull secrets. More info: https://kubernetes.io/docs/concepts/containers/images This field is optional to allow higher level config management to default or override container images in workload controllers like Deployments and StatefulSets.",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": [
+                      "object",
+                      "null"
+                    ]
+                  },
                   "iscsi": {
                     "description": "Represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.",
                     "properties": {
@@ -8837,7 +9523,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "readOnly": {
                         "description": "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.",
@@ -8850,7 +9537,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -8998,10 +9685,113 @@
                         ]
                       },
                       "sources": {
-                        "description": "sources is the list of volume projections",
+                        "description": "sources is the list of volume projections. Each entry in this list handles one source.",
                         "items": {
-                          "description": "Projection that may be projected along with other supported volume types",
+                          "description": "Projection that may be projected along with other supported volume types. Exactly one of these fields must be set.",
                           "properties": {
+                            "clusterTrustBundle": {
+                              "description": "ClusterTrustBundleProjection describes how to select a set of ClusterTrustBundle objects and project their contents into the pod filesystem.",
+                              "properties": {
+                                "labelSelector": {
+                                  "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.",
+                                  "properties": {
+                                    "matchExpressions": {
+                                      "description": "matchExpressions is a list of label selector requirements. The requirements are ANDed.",
+                                      "items": {
+                                        "description": "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.",
+                                        "properties": {
+                                          "key": {
+                                            "description": "key is the label key that the selector applies to.",
+                                            "type": "string"
+                                          },
+                                          "operator": {
+                                            "description": "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.",
+                                            "type": "string"
+                                          },
+                                          "values": {
+                                            "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.",
+                                            "items": {
+                                              "type": [
+                                                "string",
+                                                "null"
+                                              ]
+                                            },
+                                            "type": [
+                                              "array",
+                                              "null"
+                                            ],
+                                            "x-kubernetes-list-type": "atomic"
+                                          }
+                                        },
+                                        "required": [
+                                          "key",
+                                          "operator"
+                                        ],
+                                        "type": [
+                                          "object",
+                                          "null"
+                                        ]
+                                      },
+                                      "type": [
+                                        "array",
+                                        "null"
+                                      ],
+                                      "x-kubernetes-list-type": "atomic"
+                                    },
+                                    "matchLabels": {
+                                      "additionalProperties": {
+                                        "type": [
+                                          "string",
+                                          "null"
+                                        ]
+                                      },
+                                      "description": "matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is \"key\", the operator is \"In\", and the values array contains only \"value\". The requirements are ANDed.",
+                                      "type": [
+                                        "object",
+                                        "null"
+                                      ]
+                                    }
+                                  },
+                                  "type": [
+                                    "object",
+                                    "null"
+                                  ],
+                                  "x-kubernetes-map-type": "atomic"
+                                },
+                                "name": {
+                                  "description": "Select a single ClusterTrustBundle by object name.  Mutually-exclusive with signerName and labelSelector.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                },
+                                "optional": {
+                                  "description": "If true, don't block pod startup if the referenced ClusterTrustBundle(s) aren't available.  If using name, then the named ClusterTrustBundle is allowed not to exist.  If using signerName, then the combination of signerName and labelSelector is allowed to match zero ClusterTrustBundles.",
+                                  "type": [
+                                    "boolean",
+                                    "null"
+                                  ]
+                                },
+                                "path": {
+                                  "description": "Relative path from the volume root to write the bundle.",
+                                  "type": "string"
+                                },
+                                "signerName": {
+                                  "description": "Select all ClusterTrustBundles that match this signer name. Mutually-exclusive with name.  The contents of all selected ClusterTrustBundles will be unified and deduplicated.",
+                                  "type": [
+                                    "string",
+                                    "null"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "path"
+                              ],
+                              "type": [
+                                "object",
+                                "null"
+                              ]
+                            },
                             "configMap": {
                               "description": "Adapts a ConfigMap into a projected volume.\n\nThe contents of the target ConfigMap's Data field will be presented in a projected volume as files using the keys in the Data field as the file names, unless the items element is populated with specific mappings of keys to paths. Note that this is identical to a configmap volume source without the default mode.",
                               "properties": {
@@ -9039,10 +9829,11 @@
                                   "type": [
                                     "array",
                                     "null"
-                                  ]
+                                  ],
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -9157,7 +9948,8 @@
                                   "type": [
                                     "array",
                                     "null"
-                                  ]
+                                  ],
+                                  "x-kubernetes-list-type": "atomic"
                                 }
                               },
                               "type": [
@@ -9202,10 +9994,11 @@
                                   "type": [
                                     "array",
                                     "null"
-                                  ]
+                                  ],
+                                  "x-kubernetes-list-type": "atomic"
                                 },
                                 "name": {
-                                  "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                                  "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                                   "type": [
                                     "string",
                                     "null"
@@ -9264,7 +10057,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       }
                     },
                     "type": [
@@ -9350,7 +10144,8 @@
                             "null"
                           ]
                         },
-                        "type": "array"
+                        "type": "array",
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "pool": {
                         "description": "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it",
@@ -9370,7 +10165,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -9432,7 +10227,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -9530,7 +10325,8 @@
                         "type": [
                           "array",
                           "null"
-                        ]
+                        ],
+                        "x-kubernetes-list-type": "atomic"
                       },
                       "optional": {
                         "description": "optional field specify whether the Secret or its keys must be defined",
@@ -9573,7 +10369,7 @@
                         "description": "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.",
                         "properties": {
                           "name": {
-                            "description": "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
+                            "description": "Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names",
                             "type": [
                               "string",
                               "null"
@@ -9656,6 +10452,10 @@
                 "array",
                 "null"
               ],
+              "x-kubernetes-list-map-keys": [
+                "name"
+              ],
+              "x-kubernetes-list-type": "map",
               "x-kubernetes-patch-merge-key": "name",
               "x-kubernetes-patch-strategy": "merge,retainKeys"
             }
